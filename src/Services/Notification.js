@@ -61,9 +61,13 @@ class Notification {
     });
   };
   agendNotification() {
+    console.log('Entrando no agendNotification');
+
     PushNotification.localNotificationSchedule({
       id: 2,
       channelId: 'channel-id',
+      largeIcon: 'ic_burger',
+      smallIcon: 'ic_burger',
       title: 'Tem CUPOM pra você!',
       message: 'Mate a fome pagando menos!',
       date: new Date(Date.now() + 300 * 1000),
@@ -75,6 +79,8 @@ class Notification {
     PushNotification.localNotificationSchedule({
       id: 3,
       channelId: 'channel-id',
+      largeIcon: 'ic_burger',
+      smallIcon: 'ic_burger',
       title: 'Pizza, lanche, sushi?',
       message: 'O que você quiser, o importante é comer!',
       date: new Date(Date.now() + 600 * 1000),
@@ -86,6 +92,8 @@ class Notification {
     PushNotification.localNotificationSchedule({
       id: 4,
       channelId: 'channel-id',
+      largeIcon: 'ic_burger',
+      smallIcon: 'ic_burger',
       title: 'Dia da PIZZA!',
       message: 'Só hoje! 25% de desconto em qualquer pedido de #PIZZA!',
       date: new Date(Date.now() + 900 * 1000),
@@ -94,6 +102,12 @@ class Notification {
       repeatType: 'time',
     });
   }
+
+  cancelAllLocalNotifications = () => {
+    console.log('Entrando no cancelNotification');
+
+    PushNotification.cancelAllLocalNotifications();
+  };
 }
 
 export const notificationManager = new Notification();

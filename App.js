@@ -14,16 +14,27 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    notificator.agendNotification();
     notificator.newChannel();
     notificator.configuration();
   }
 
-  sendNotify = () => {
+  cancellNotifications = () => {
+    notificator.cancelAllLocalNotifications();
     notificator.showNotification(
       1,
-      'Notificação de Teste!',
-      'Clique para ir à página de destino!',
+      'Notificações Canceladas',
+      'Agora você não vai mais receber notificações a cada 5 minutos!',
+      {}, // data
+      {smallIcon: 'ic_burger', largeIcon: 'ic_burger'}, // options
+    );
+  };
+
+  sendNotify = () => {
+    notificator.agendNotification();
+    notificator.showNotification(
+      1,
+      'Notificações ativadas!',
+      'Agora você vai receber notificações a cada 5 minutos!',
       {}, // data
       {smallIcon: 'ic_burger', largeIcon: 'ic_burger'}, // options
     );
@@ -39,6 +50,7 @@ export default class App extends Component {
                 <Index
                   navigator={navigation}
                   sendNotification={this.sendNotify}
+                  cancellNotifications={this.cancellNotifications}
                 />
               );
             }}

@@ -10,9 +10,14 @@ export default function Index(props) {
         }}
         style={styles.image}
       />
-      <Button
-        title="Testar notificação"
-        onPress={() => props.sendNotification()}></Button>
+      <View style={styles.btnGroup}>
+        <Button
+          title="Testar notificação"
+          onPress={() => props.sendNotification()}></Button>
+        <Button
+          title="Cancelar Notificações"
+          onPress={() => props.cancellNotifications()}></Button>
+      </View>
     </View>
   );
 }
@@ -26,6 +31,10 @@ const styles = StyleSheet.create({
   image: {
     width: 400,
     height: 400,
-    marginBottom: 20,
+    marginBottom: 40,
+  },
+  btnGroup: {
+    height: 100,
+    justifyContent: 'space-evenly',
   },
 });
