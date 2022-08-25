@@ -26,12 +26,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#dedede',
+    backgroundColor: '#c9121e',
   },
   image: {
     width: 400,
     height: 400,
     marginBottom: 40,
+    borderRadius: 50,
   },
   btnGroup: {
     height: 100,
